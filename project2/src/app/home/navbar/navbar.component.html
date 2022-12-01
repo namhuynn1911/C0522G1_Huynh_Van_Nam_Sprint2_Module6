@@ -1,0 +1,108 @@
+<div class="row"
+     style="background: white;padding: 0">
+  <div class="col-lg-3">
+    <a routerLink="" class="logo px-5" style="margin-bottom: 10px">
+      <img src="/assets/img/namlogo.png" style="height: 100px;width: 200px" alt="">
+    </a>
+  </div>
+  <div class="col-lg-5">
+   <form class="navbar-form navbar-left mt-4" role="search">
+     <div class="form-group " style="float: left;width: 400px;border-radius: 50px">
+       <input type="text" class="form-control" placeholder="Tên sản phẩm ...">
+     </div>
+     <button type="submit" class="btn btn-default mx-1" style="background: rgb(58,36,83);color:white;border-radius: 10px">Tìm</button>
+   </form>
+  </div>
+  <div class="col-lg-4">
+   <span>
+     <p class="mt-3 px-4" style="color: black;font-weight: bolder;float: left">
+     <button class="btn button btnRed">
+       <svg style="color: white" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+            class="bi bi-cart-check" viewBox="0 0 16 16">
+  <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+  <path
+    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+</svg>
+     </button>
+     Giỏ hàng
+       </p>
+<div class="dropdown mt-4"style="padding: 0">
+  <p style="color: black;font-weight: bolder">
+    <i class="fa-solid fa-user"></i>
+    Tài khoản cuả bạn
+  </p>
+  <p  class="colorB">
+    <a href="#">Đăng nhập</a> / <a href="#">Đăng ký</a>
+  </p>
+</div>
+   </span>
+  </div>
+</div>
+<div class="row sticky-lg-top">
+  <nav class="navbar navbar-expand-lg nav-header">
+    <div style="margin: auto">
+      <button class="navbar-toggler" style="background: white" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll" style="text-align: center">
+          <li class="nav-item mx-4">
+            <a class="nav-link colorA" routerLink="/ticket/booking-ticket">
+              <i class="fa-solid fa-house-user"></i> Trang chủ</a>
+          </li>
+          <li class="nav-item dropdown mx-4">
+            <a class="nav-link dropdown-toggle colorA" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+              <i class="fa-brands fa-product-hunt"></i> Sản phẩm
+            </a>
+            <ul class="dropdown-menu dropdown-menu-danger">
+              <li><a class="dropdown-item" routerLink="/moviePlay">Cầu lông</a></li>
+              <li><a class="dropdown-item" routerLink="/moviePremiere">Giày cầu lông</a></li>
+              <li><a class="dropdown-item" routerLink="/moviePremiere">Vật dụng khác</a></li>
+            </ul>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link colorA" routerLink="/employee/list"><i class="fa-solid fa-list-check"></i> Giới thiệu</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link colorA" routerLink="/customer/list"><i
+              class="fa fa-user-secret"></i> Liên hệ</a>
+          </li>
+          <!--          <li class="nav-item mx-2">-->
+          <!--            <a class="nav-link colorA" *ngIf="isEmployee" routerLink="/promotion/list"><i-->
+          <!--              class="fa-solid fa-list-check"></i>-->
+          <!--              Khuyến mãi</a>-->
+          <!--          </li>-->
+          <!--          <li class="nav-item mx-2">-->
+          <!--            <a class="nav-link colorA" routerLink="/movie/list" *ngIf="isEmployee"><i class="fa-solid fa-film"></i>-->
+          <!--              Quản lý phim</a>-->
+          <!--          </li>-->
+          <!--          <li class="nav-item mx-2">-->
+          <!--            <a class="nav-link colorA" routerLink="/promotionDetail"><i class="fa-solid fa-percent"></i> Danh sách-->
+          <!--              khuyến mãi</a>-->
+          <!--          </li>-->
+          <!--          <li class="nav-item dropdown mx-2">-->
+          <!--            <a class="nav-link dropdown-toggle colorA" *ngIf="isAdmin" href="#" role="button"-->
+          <!--               data-bs-toggle="dropdown"-->
+          <!--               aria-expanded="false">-->
+          <!--              <i class="fa fa-chart-simple"></i> Thống kê-->
+          <!--            </a>-->
+          <!--            <ul class="dropdown-menu dropdown-menu-dark">-->
+          <!--              <li><a class="dropdown-item" routerLink="/statement/movie">Thống kê phim</a></li>-->
+          <!--              <li><a class="dropdown-item" routerLink="/statement/customer">Thống kê thành viên</a></li>-->
+          <!--            </ul>-->
+          <!--          </li>-->
+          <!--          <li class="nav-item mx-2">-->
+          <!--            <a class="nav-link colorA" *ngIf="isEmployee" routerLink="/ticket/list-management"><i-->
+          <!--              class="fa fa-user-secret"></i> Vé</a>-->
+          <!--          </li>-->
+          <!--          <li class="nav-item mx-2">-->
+          <!--            <a class="nav-link colorA" routerLink="/register/signup"><i class="fa-solid fa-user-plus"></i> Đăng ký</a>-->
+          <!--          </li>-->
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
