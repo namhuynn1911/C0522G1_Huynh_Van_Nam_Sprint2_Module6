@@ -630,7 +630,7 @@ body {
   content: "";
   height: 5px;
   width: 0;
-  background-color: orange;
+  background-color: red;
   position: absolute;
   bottom: 0px;
   left: 0px;
