@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '', component: BodyComponent
   },
-  {path: 'detail', component: DetailBadmintonComponent
+  {path: 'detail/:id', component: DetailBadmintonComponent
   },
   {path: 'cart', component: CartBadmintonComponent}
 ];

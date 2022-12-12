@@ -43,9 +43,8 @@
         <div class="legend"></div>
         <div class="content">
           <div class="content-txt">
-            <h1>Lorem ipsum dolor</h1>
-            <h2>Nam ultrices pellentesque facilisis. In semper tellus mollis nisl pulvinar vitae vulputate lorem
-              consequat. Fusce odio tortor, pretium sit amet auctor ut, ultrices vel nibh.</h2>
+            <h1>Nguyễn Thùy Linh</h1>
+            <h2>Tuyển thủ nữ của Việt Nam lên ngôi ở nội dung đơn nữ giải Belgian International 2022.</h2>
           </div>
         </div>
         <div class="image">
@@ -135,15 +134,20 @@
 <!--card vợt-->
 <div class="row nav justify-content-center mt-3">
   <div class="col-lg-1"></div>
-  <div class="col-lg-10" style="background: lightyellow;border-radius: 20px">
-    <div class="row">
-      <div class="col-md-3 col-sm-6">
+  <div class="col-lg-10" style="border-radius: 20px">
+    <div class="mb-5 mt-5" *ngIf="!action" style="color: orange;text-align: center">
+      <div class="spinner-border text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <h1>Sản phẩm đang cập nhật. Vui lòng chọn sản phẩm khác !</h1>
+    </div>
+    <div class="row" *ngIf="action">
+      <div class="col-md-3 col-sm-6 col-ms-12 mb-4" *ngFor="let item of (productList$ |async)">
         <div class="product-grid">
           <div class="product-image">
-            <a href="#" class="image">
-              <img class="pic-1"
-                   src="https://tennisus.vn/uploads/plugin/product_items/300/z3880254972599-b3aab1e60db9f1d8accc7cde04e13ae3.jpg">
-              <!--            <img class="pic-2" src="images/img-2.jpg">-->
+            <a  class="image">
+              <img routerLink="/detail/{{item.id}}" class="pic-1"style="height: 250px"
+                   src="{{item.image}}">
             </a>
             <span class="product-sale-label">hot</span>
             <span class="product-discount-label">-33%</span>
@@ -156,109 +160,111 @@
               <li class="fas fa-star"></li>
               <li class="fas fa-star disable"></li>
             </ul>
-            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-            <div class="price"><span>$30.00</span> $20.00</div>
+            <h3 class="title" routerLink="/detail/{{item.id}}"><a >{{item.name}}</a></h3>
+            <div class="price">{{item.price}}</div>
             <div class="product-button">
-              <a class="product-like" href="#"><i class="fas fa-heart"></i></a>
-              <a class="add-to" href="#"><i class="fa fa-shopping-bag"></i>ADD TO CART</a>
+              <a class="product-like" ><i class="fas fa-heart"></i></a>
+              <a class="add-to" ><i class="fa fa-shopping-bag"></i>Thêm giỏ hàng</a>
               <a class="product-compare" href="#"><i class="fas fa-random"></i></a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-          <div class="product-image">
-            <a href="#" class="image">
-              <img class="pic-1"
-                   src="https://tennisus.vn/uploads/plugin/product_items/300/z3880254972599-b3aab1e60db9f1d8accc7cde04e13ae3.jpg">
-              <!--            <img class="pic-2" src="images/img-2.jpg">-->
-            </a>
-            <span class="product-sale-label">hot</span>
-            <span class="product-discount-label">-33%</span>
-          </div>
-          <div class="product-content">
-            <ul class="rating">
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star disable"></li>
-            </ul>
-            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-            <div class="price"><span>$30.00</span> $20.00</div>
-            <div class="product-button">
-              <a class="product-like" href="#"><i class="fas fa-heart"></i></a>
-              <a class="add-to" href="#"><i class="fa fa-shopping-bag"></i>ADD TO CART</a>
-              <a class="product-compare" href="#"><i class="fas fa-random"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-          <div class="product-image">
-            <a href="#" class="image">
-              <img class="pic-1"
-                   src="https://tennisus.vn/uploads/plugin/product_items/300/z3880254972599-b3aab1e60db9f1d8accc7cde04e13ae3.jpg">
-              <!--            <img class="pic-2" src="images/img-2.jpg">-->
-            </a>
-            <span class="product-sale-label">hot</span>
-            <span class="product-discount-label">-33%</span>
-          </div>
-          <div class="product-content">
-            <ul class="rating">
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star disable"></li>
-            </ul>
-            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-            <div class="price"><span>$30.00</span> $20.00</div>
-            <div class="product-button">
-              <a class="product-like" href="#"><i class="fas fa-heart"></i></a>
-              <a class="add-to" href="#"><i class="fa fa-shopping-bag"></i>ADD TO CART</a>
-              <a class="product-compare" href="#"><i class="fas fa-random"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-          <div class="product-image">
-            <a href="#" class="image">
-              <img class="pic-1"
-                   src="https://tennisus.vn/uploads/plugin/product_items/300/z3880254972599-b3aab1e60db9f1d8accc7cde04e13ae3.jpg">
-              <!--            <img class="pic-2" src="images/img-2.jpg">-->
-            </a>
-            <span class="product-sale-label">hot</span>
-            <span class="product-discount-label">-33%</span>
-          </div>
-          <div class="product-content">
-            <ul class="rating">
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star disable"></li>
-            </ul>
-            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-            <div class="price"><span>$30.00</span> $20.00</div>
-            <div class="product-button">
-              <a class="product-like" href="#"><i class="fas fa-heart"></i></a>
-              <a class="add-to" href="#"><i class="fa fa-shopping-bag"></i>ADD TO CART</a>
-              <a class="product-compare" href="#"><i class="fas fa-random"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
+<!--      <div class="col-md-3 col-sm-6">-->
+<!--        <div class="product-grid">-->
+<!--          <div class="product-image">-->
+<!--            <a href="#" class="image">-->
+<!--              <img class="pic-1"-->
+<!--                   src="https://tennisus.vn/uploads/plugin/product_items/300/z3880254972599-b3aab1e60db9f1d8accc7cde04e13ae3.jpg">-->
+<!--              &lt;!&ndash;            <img class="pic-2" src="images/img-2.jpg">&ndash;&gt;-->
+<!--            </a>-->
+<!--            <span class="product-sale-label">hot</span>-->
+<!--            <span class="product-discount-label">-33%</span>-->
+<!--          </div>-->
+<!--          <div class="product-content">-->
+<!--            <ul class="rating">-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star disable"></li>-->
+<!--            </ul>-->
+<!--            <h3 class="title"><a href="#">Men's Blazer</a></h3>-->
+<!--            <div class="price"><span>$30.00</span> $20.00</div>-->
+<!--            <div class="product-button">-->
+<!--              <a class="product-like" href="#"><i class="fas fa-heart"></i></a>-->
+<!--              <a class="add-to" href="#"><i class="fa fa-shopping-bag"></i>ADD TO CART</a>-->
+<!--              <a class="product-compare" href="#"><i class="fas fa-random"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-md-3 col-sm-6">-->
+<!--        <div class="product-grid">-->
+<!--          <div class="product-image">-->
+<!--            <a href="#" class="image">-->
+<!--              <img class="pic-1"-->
+<!--                   src="https://tennisus.vn/uploads/plugin/product_items/300/z3880254972599-b3aab1e60db9f1d8accc7cde04e13ae3.jpg">-->
+<!--              &lt;!&ndash;            <img class="pic-2" src="images/img-2.jpg">&ndash;&gt;-->
+<!--            </a>-->
+<!--            <span class="product-sale-label">hot</span>-->
+<!--            <span class="product-discount-label">-33%</span>-->
+<!--          </div>-->
+<!--          <div class="product-content">-->
+<!--            <ul class="rating">-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star disable"></li>-->
+<!--            </ul>-->
+<!--            <h3 class="title"><a href="#">Men's Blazer</a></h3>-->
+<!--            <div class="price"><span>$30.00</span> $20.00</div>-->
+<!--            <div class="product-button">-->
+<!--              <a class="product-like" href="#"><i class="fas fa-heart"></i></a>-->
+<!--              <a class="add-to" href="#"><i class="fa fa-shopping-bag"></i>ADD TO CART</a>-->
+<!--              <a class="product-compare" href="#"><i class="fas fa-random"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-md-3 col-sm-6">-->
+<!--        <div class="product-grid">-->
+<!--          <div class="product-image">-->
+<!--            <a href="#" class="image">-->
+<!--              <img class="pic-1"-->
+<!--                   src="https://tennisus.vn/uploads/plugin/product_items/300/z3880254972599-b3aab1e60db9f1d8accc7cde04e13ae3.jpg">-->
+<!--              &lt;!&ndash;            <img class="pic-2" src="images/img-2.jpg">&ndash;&gt;-->
+<!--            </a>-->
+<!--            <span class="product-sale-label">hot</span>-->
+<!--            <span class="product-discount-label">-33%</span>-->
+<!--          </div>-->
+<!--          <div class="product-content">-->
+<!--            <ul class="rating">-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star disable"></li>-->
+<!--            </ul>-->
+<!--            <h3 class="title"><a href="#">Men's Blazer</a></h3>-->
+<!--            <div class="price"><span>$30.00</span> $20.00</div>-->
+<!--            <div class="product-button">-->
+<!--              <a class="product-like" href="#"><i class="fas fa-heart"></i></a>-->
+<!--              <a class="add-to" href="#"><i class="fa fa-shopping-bag"></i>ADD TO CART</a>-->
+<!--              <a class="product-compare" href="#"><i class="fas fa-random"></i></a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </div>
   <div class="col-lg-1"></div>
 </div>
 <div class="row mt-4 mb-4 next">
-  <a href="#">Xem tiếp <i class="fa-solid fa-arrow-right"></i></a>
+  <div>
+  <a *ngIf="pageSize <= (total$ | async)"  (click)="nextPage()">Xem tiếp <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
 </div>
 
 <div class="row">
@@ -273,20 +279,26 @@
 <!--card giày-->
 <div class="row nav justify-content-center mt-3">
   <div class="col-lg-1"></div>
-  <div class="col-lg-10"style="background: lightyellow">
-    <div class="row">
-      <div class="col-lg-3 col-sm-6">
+  <div class="col-lg-10">
+    <div class="mb-5 mt-5" *ngIf="!shoeAction" style="color: orange;text-align: center">
+      <div class="spinner-border text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <h1>Sản phẩm đang cập nhật. Vui lòng chọn sản phẩm khác !</h1>
+    </div>
+    <div class="row" *ngIf="shoeAction">
+      <div class="col-lg-3 col-sm-6 mb-4" *ngFor="let item of (shoeList$ |async)">
         <div class="product-grid" style="width: 300px;">
           <div class="product-image">
-            <a href="#" class="image">
-              <img class="pic-1" src="https://ptshop.vn/wp-content/uploads/2022/02/Giay-cau-long-Yonex-SHb65Z3-3.png">
+            <a  class="image">
+              <img routerLink="/detail/{{item.id}}" class="pic-1" src="{{item.image}}">
             </a>
             <span class="product-discount-label">-33%</span>
-            <ul class="product-links">
-              <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-              <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-              <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-            </ul>
+<!--            <ul class="product-links">-->
+<!--              <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>-->
+<!--              <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>-->
+<!--              <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>-->
+<!--            </ul>-->
           </div>
           <div class="product-content">
             <ul class="rating">
@@ -296,98 +308,100 @@
               <li class="far fa-star"></li>
               <li class="far fa-star"></li>
             </ul>
-            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-            <div class="price"><span>$90.00</span> $66.00</div>
-            <a class="add-to-cart" href="#">add to cart</a>
+            <h3 class="title"><a routerLink="/detail/{{item.id}}">{{item.name}}</a></h3>
+            <div class="price">{{item.price}}</div>
+            <a class="add-to-cart" >Thêm giỏ hàng</a>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-sm-6">
-        <div class="product-grid" style="width: 300px">
-          <div class="product-image">
-            <a href="#" class="image">
-              <img class="pic-1" src="https://cf.shopee.vn/file/66641d03ee93a051891c6290b7314eb8">
-            </a>
-            <span class="product-discount-label">-33%</span>
-            <ul class="product-links">
-              <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-              <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-              <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-            </ul>
-          </div>
-          <div class="product-content">
-            <ul class="rating">
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="far fa-star"></li>
-              <li class="far fa-star"></li>
-            </ul>
-            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-            <div class="price"><span>$90.00</span> $66.00</div>
-            <a class="add-to-cart" href="#">add to cart</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6">
-        <div class="product-grid" style="width: 300px">
-          <div class="product-image">
-            <a href="#" class="image">
-              <img class="pic-1" src="https://meta.vn/Data/image/2019/07/04/giay-the-thao-mizuno-thunder-blade-b.jpg">
-            </a>
-            <span class="product-discount-label">-33%</span>
-            <ul class="product-links">
-              <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-              <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-              <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-            </ul>
-          </div>
-          <div class="product-content">
-            <ul class="rating">
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="far fa-star"></li>
-              <li class="far fa-star"></li>
-            </ul>
-            <h3 class="title"><a href="#">Men's Blazer</a></h3>
-            <div class="price"><span>$90.00</span> $66.00</div>
-            <a class="add-to-cart" href="#">add to cart</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6">
-        <div class="product-grid" style="width: 300px">
-          <div class="product-image">
-            <a href="#" class="image">
-              <img class="pic-1"
-                   src="https://img.websosanh.vn/v10/users/keydes/images/cxjpz6nzmajt8/giay-cau-long-lining-1.jpg">
-            </a>
-            <ul class="product-links">
-              <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-              <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>
-              <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-            </ul>
-          </div>
-          <div class="product-content">
-            <ul class="rating">
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="far fa-star"></li>
-            </ul>
-            <h3 class="title"><a href="#">Women's Shirt</a></h3>
-            <div class="price">$79.90</div>
-            <a class="add-to-cart" href="#">add to cart</a>
-          </div>
-        </div>
-      </div>
+<!--      <div class="col-lg-3 col-sm-6">-->
+<!--        <div class="product-grid" style="width: 300px">-->
+<!--          <div class="product-image">-->
+<!--            <a href="#" class="image">-->
+<!--              <img class="pic-1" src="https://cf.shopee.vn/file/66641d03ee93a051891c6290b7314eb8">-->
+<!--            </a>-->
+<!--            <span class="product-discount-label">-33%</span>-->
+<!--            <ul class="product-links">-->
+<!--              <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>-->
+<!--              <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>-->
+<!--              <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--          <div class="product-content">-->
+<!--            <ul class="rating">-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="far fa-star"></li>-->
+<!--              <li class="far fa-star"></li>-->
+<!--            </ul>-->
+<!--            <h3 class="title"><a href="#">Men's Blazer</a></h3>-->
+<!--            <div class="price"><span>$90.00</span> $66.00</div>-->
+<!--            <a class="add-to-cart" href="#">add to cart</a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-lg-3 col-sm-6">-->
+<!--        <div class="product-grid" style="width: 300px">-->
+<!--          <div class="product-image">-->
+<!--            <a href="#" class="image">-->
+<!--              <img class="pic-1" src="https://meta.vn/Data/image/2019/07/04/giay-the-thao-mizuno-thunder-blade-b.jpg">-->
+<!--            </a>-->
+<!--            <span class="product-discount-label">-33%</span>-->
+<!--            <ul class="product-links">-->
+<!--              <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>-->
+<!--              <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>-->
+<!--              <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--          <div class="product-content">-->
+<!--            <ul class="rating">-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="far fa-star"></li>-->
+<!--              <li class="far fa-star"></li>-->
+<!--            </ul>-->
+<!--            <h3 class="title"><a href="#">Men's Blazer</a></h3>-->
+<!--            <div class="price"><span>$90.00</span> $66.00</div>-->
+<!--            <a class="add-to-cart" href="#">add to cart</a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-lg-3 col-sm-6">-->
+<!--        <div class="product-grid" style="width: 300px">-->
+<!--          <div class="product-image">-->
+<!--            <a href="#" class="image">-->
+<!--              <img class="pic-1"-->
+<!--                   src="https://img.websosanh.vn/v10/users/keydes/images/cxjpz6nzmajt8/giay-cau-long-lining-1.jpg">-->
+<!--            </a>-->
+<!--            <ul class="product-links">-->
+<!--              <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>-->
+<!--              <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>-->
+<!--              <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--          <div class="product-content">-->
+<!--            <ul class="rating">-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="fas fa-star"></li>-->
+<!--              <li class="far fa-star"></li>-->
+<!--            </ul>-->
+<!--            <h3 class="title"><a href="#">Women's Shirt</a></h3>-->
+<!--            <div class="price">$79.90</div>-->
+<!--            <a class="add-to-cart" href="#">add to cart</a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </div>
   <div class="col-lg-1"></div>
 </div>
 <div class="row mt-4 mb-4 next">
-  <a href="#">Xem tiếp <i class="fa-solid fa-arrow-right"></i></a>
+  <div>
+    <a *ngIf="pageSizeShoe <= (totalShoe$ | async)"  (click)="shoeNextPage()">Xem tiếp <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
 </div>
 

@@ -1,24 +1,33 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
-    <!-- Tabs Titles -->
-    <h2 class="active"> Sign In </h2>
-    <h2 class="inactive underlineHover">Sign Up </h2>
-
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="https://znews-photo.zingcdn.me/w660/Uploaded/neg_etpyole/2021_11_28/al.jpg" id="icon" alt="User Icon" />
+    <div class="fadeIn first mt-2">
+      <img src="https://znews-photo.zingcdn.me/w660/Uploaded/neg_etpyole/2021_11_28/al.jpg" id="icon" alt="User Icon"/>
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <div>
+      <label> <span class="text-danger"
+                    *ngIf="formGroup.controls.username.hasError('required')
+                  && formGroup.controls.username.dirty">
+            Vui lòng nhập tài khoản !</span></label>
+        <input type="text" formControlName="username"placeholder="login" >
+<!--      <input type="text" id="login" class="fadeIn second" formControlName="username" placeholder="login">-->
+      </div>
+      <div>
+      <label> <span class="text-danger"
+                    *ngIf="formGroup.controls.password.hasError('required')
+                  && formGroup.controls.password.dirty">
+            Vui lòng nhập mật khẩu !</span></label>
+        <input type="password" formControlName="password">
+<!--      <input type="password" id="password" class="fadeIn third" formControlName="password" placeholder="password">-->
+      </div>
+      <input type="submit" class="fadeIn fourth" value="Đăng nhập ">
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a class="underlineHover" href="#">Quên mật khẩu</a>
     </div>
 
   </div>

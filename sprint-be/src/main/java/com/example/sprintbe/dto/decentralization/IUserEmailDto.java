@@ -1,0 +1,6 @@
+package com.example.sprintbe.dto.decentralization;
+
+public interface IUserEmailDto {
+    String getUsername();
+    String getEmail();
+}

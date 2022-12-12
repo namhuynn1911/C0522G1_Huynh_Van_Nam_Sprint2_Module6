@@ -6,36 +6,51 @@
     </a>
   </div>
   <div class="col-lg-5">
-   <form class="navbar-form navbar-left mt-4" role="search">
-     <div class="form-group " style="float: left;width: 400px">
-       <input type="text" class="form-control" placeholder="Tên sản phẩm ...">
-     </div>
-     <button type="submit" class="btn btn-default mx-1" style="background: rgb(58,36,83);color:white;border-radius: 10px">Tìm</button>
-   </form>
+<!--    <form class="navbar-form navbar-left mt-4" role="search">-->
+<!--      <div class="form-group " style="float: left;width: 400px">-->
+<!--        <input type="text" class="form-control" placeholder="Tên sản phẩm ...">-->
+<!--      </div>-->
+<!--      <button type="submit" class="btn btn-default mx-1"-->
+<!--              style="background: rgb(58,36,83);color:white;border-radius: 10px">Tìm-->
+<!--      </button>-->
+<!--    </form>-->
+   <div>
+     <h1 style="font-weight: bold;color: red">NAM HUỲNH SPORT</h1>
+   </div>
+    <div style="margin-left: 15%">
+      <b>Địa chỉ: Tam Kỳ, Quảng Nam.</b>
+    </div>
+
   </div>
-  <div class="col-lg-4">
-   <span>
-     <p class="mt-3 px-4" style="color: black;font-weight: bolder;float: left">
-     <button href="#" class="btn btn-warning" style="width: 110px">
-       <svg style="color: black" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-            class="bi bi-cart-check" viewBox="0 0 16 16">
-  <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
-  <path
-    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-</svg>
-     </button>
-     Giỏ hàng
-       </p>
-<div class="dropdown mt-4"style="padding: 0">
-  <p style="color: black;font-weight: bolder">
-    <i class="fa-solid fa-user"></i>
-    Tài khoản cuả bạn
-  </p>
-  <p  class="colorB">
-    <a href="#">Đăng nhập</a> / <a href="#">Đăng ký</a>
-  </p>
-</div>
-   </span>
+  <div class="col-lg-2">
+    <div class="dropdown mt-2" style="padding: 0">
+      <p style="color: black;font-weight: bolder;font-size: 20px">
+        <i class="fa-solid fa-user"></i>
+        Tài khoản cuả bạn
+      </p>
+      <p class="colorB">
+        <a routerLink="/register/info" *ngIf="username" style="text-decoration: none; color: orange;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+               class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+            <path
+              d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z"/>
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+          </svg>
+          <span class="ps-2">{{username}}</span></a>
+        <a routerLink="/login" *ngIf="username==''">Đăng nhập</a> <a (click)="whenLogout()" *ngIf="username!=''"> / Đăng
+        xuất</a>
+      </p>
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <button class="cartHeader mt-4" routerLink="/cart">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-plus-fill"
+           viewBox="0 0 16 16">
+        <path
+          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
+      </svg>
+      Giỏ hàng
+    </button>
   </div>
 </div>
 <div class="row sticky-lg-top">

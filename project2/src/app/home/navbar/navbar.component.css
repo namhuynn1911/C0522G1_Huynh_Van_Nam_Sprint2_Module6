@@ -87,3 +87,11 @@
 .colorB :hover {
   color: black;
 }
+.cartHeader{
+  background-color: orange;
+  border-radius: 10px;
+  height: 50px;
+}
+.cartHeader:hover {
+  background-color: white;
+}
