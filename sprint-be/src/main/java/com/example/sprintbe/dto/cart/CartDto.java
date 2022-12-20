@@ -13,6 +13,5 @@ public interface CartDto {
     String getImage();
 
     int getTotal();
-     Integer getProductId();
 
 }

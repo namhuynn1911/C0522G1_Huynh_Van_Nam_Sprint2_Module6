@@ -46,3 +46,10 @@ insert into product (name, image, date_of_manufacture, price, promotion, content
 INSERT INTO `project_spring2_6`.`user_role` (`username`, `role_id`, `is_delete`) VALUES ('admin', 1, 0);
 INSERT INTO `project_spring2_6`.`user_role` (`username`, `role_id`, `is_delete`) VALUES ('admin', 2, 0);
 INSERT INTO `project_spring2_6`.`user_role` (`username`, `role_id`, `is_delete`) VALUES ('user', 2, 0);
+-- insert cart
+INSERT INTO `project_spring2_6`.`cart` (`id`, `is_delete`, `username`) VALUES (1,0, 'admin');
+INSERT INTO `project_spring2_6`.`cart` (`id`, `is_delete`, `username`) VALUES (2, 0, 'user');
+
+-- insert product_customer
+INSERT INTO `project_spring2_6`.`product_customer` (`cart_id`, `amount`, `product_id`, `is_delete`) VALUES (1, 2, 1, 0);
+INSERT INTO `project_spring2_6`.`product_customer` (`cart_id`, `amount`, `product_id`, `is_delete`) VALUES (2, 1, 2, 0);

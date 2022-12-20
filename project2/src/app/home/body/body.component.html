@@ -80,7 +80,7 @@
         <div class="collapse navbar-collapse" id="wrapper">
           <ul class="ul" id="main-menu">
             <li>
-              <h5 class="text-dark" routerLink="">YONEX</h5>
+              <h5 class="text-dark" routerLink="/yonex">YONEX</h5>
             </li>
             <li>
               <h5 class="text-dark" routerLink="/list/premiere">MIZUNO</h5>
@@ -216,91 +216,10 @@
             </ul>
             <h3 class="title"><a routerLink="/detail/{{item.id}}">{{item.name}}</a></h3>
             <div class="price">{{item.price}}</div>
-            <a class="add-to-cart">Thêm giỏ hàng</a>
+            <a href="#" class="add-to-cart" (click)="addToCart(item)">Thêm giỏ hàng</a>
           </div>
         </div>
       </div>
-      <!--      <div class="col-lg-3 col-sm-6">-->
-      <!--        <div class="product-grid" style="width: 300px">-->
-      <!--          <div class="product-image">-->
-      <!--            <a href="#" class="image">-->
-      <!--              <img class="pic-1" src="https://cf.shopee.vn/file/66641d03ee93a051891c6290b7314eb8">-->
-      <!--            </a>-->
-      <!--            <span class="product-discount-label">-33%</span>-->
-      <!--            <ul class="product-links">-->
-      <!--              <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>-->
-      <!--              <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>-->
-      <!--              <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>-->
-      <!--            </ul>-->
-      <!--          </div>-->
-      <!--          <div class="product-content">-->
-      <!--            <ul class="rating">-->
-      <!--              <li class="fas fa-star"></li>-->
-      <!--              <li class="fas fa-star"></li>-->
-      <!--              <li class="fas fa-star"></li>-->
-      <!--              <li class="far fa-star"></li>-->
-      <!--              <li class="far fa-star"></li>-->
-      <!--            </ul>-->
-      <!--            <h3 class="title"><a href="#">Men's Blazer</a></h3>-->
-      <!--            <div class="price"><span>$90.00</span> $66.00</div>-->
-      <!--            <a class="add-to-cart" href="#">add to cart</a>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </div>-->
-      <!--      <div class="col-lg-3 col-sm-6">-->
-      <!--        <div class="product-grid" style="width: 300px">-->
-      <!--          <div class="product-image">-->
-      <!--            <a href="#" class="image">-->
-      <!--              <img class="pic-1" src="https://meta.vn/Data/image/2019/07/04/giay-the-thao-mizuno-thunder-blade-b.jpg">-->
-      <!--            </a>-->
-      <!--            <span class="product-discount-label">-33%</span>-->
-      <!--            <ul class="product-links">-->
-      <!--              <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>-->
-      <!--              <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>-->
-      <!--              <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>-->
-      <!--            </ul>-->
-      <!--          </div>-->
-      <!--          <div class="product-content">-->
-      <!--            <ul class="rating">-->
-      <!--              <li class="fas fa-star"></li>-->
-      <!--              <li class="fas fa-star"></li>-->
-      <!--              <li class="fas fa-star"></li>-->
-      <!--              <li class="far fa-star"></li>-->
-      <!--              <li class="far fa-star"></li>-->
-      <!--            </ul>-->
-      <!--            <h3 class="title"><a href="#">Men's Blazer</a></h3>-->
-      <!--            <div class="price"><span>$90.00</span> $66.00</div>-->
-      <!--            <a class="add-to-cart" href="#">add to cart</a>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </div>-->
-      <!--      <div class="col-lg-3 col-sm-6">-->
-      <!--        <div class="product-grid" style="width: 300px">-->
-      <!--          <div class="product-image">-->
-      <!--            <a href="#" class="image">-->
-      <!--              <img class="pic-1"-->
-      <!--                   src="https://img.websosanh.vn/v10/users/keydes/images/cxjpz6nzmajt8/giay-cau-long-lining-1.jpg">-->
-      <!--            </a>-->
-      <!--            <ul class="product-links">-->
-      <!--              <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>-->
-      <!--              <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li>-->
-      <!--              <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>-->
-      <!--            </ul>-->
-      <!--          </div>-->
-      <!--          <div class="product-content">-->
-      <!--            <ul class="rating">-->
-      <!--              <li class="fas fa-star"></li>-->
-      <!--              <li class="fas fa-star"></li>-->
-      <!--              <li class="fas fa-star"></li>-->
-      <!--              <li class="fas fa-star"></li>-->
-      <!--              <li class="far fa-star"></li>-->
-      <!--            </ul>-->
-      <!--            <h3 class="title"><a href="#">Women's Shirt</a></h3>-->
-      <!--            <div class="price">$79.90</div>-->
-      <!--            <a class="add-to-cart" href="#">add to cart</a>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </div>-->
     </div>
   </div>
   <div class="col-lg-1"></div>

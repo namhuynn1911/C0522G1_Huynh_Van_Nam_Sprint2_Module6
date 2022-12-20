@@ -21,6 +21,7 @@ create table if not exists user_role(
     foreign key(role_id) references role(id),
     primary key(username, role_id)
 );
+
 create table if not exists customer(
 	id int primary key auto_increment,
 	name varchar(30),
@@ -34,11 +35,13 @@ create table if not exists customer(
 	username varchar(30) unique,
 	foreign key (username) references user(username)
 );
+
 create table if not exists producer(
 	id int primary key auto_increment,
 	name varchar(50),
 is_delete bit default 0
 );
+
 create table if not exists product_type(
 	id int primary key auto_increment,
 	name varchar(50),
@@ -59,18 +62,20 @@ create table if not exists product(
     product_type_id int,
     foreign key (product_type_id) references product_type(id)
 );
+
 create table if not exists cart(
 	id int primary key auto_increment,
-	amount int,
     is_delete bit default 0,
-    product_id int,
-    foreign key(product_id) references product(id)
+    username varchar(30),
+foreign key(username) references user(username)
 );
+
 create table if not exists product_customer(
-id_customer int,
-id_product int,
+cart_id int,
+amount int,
+product_id int,
 is_delete bit default 0,
-foreign key(id_customer) references customer(id),
-foreign key(id_product) references product(id),
-primary key(id_customer, id_product)
+foreign key(cart_id) references cart(id),
+foreign key(product_id) references product(id),
+primary key(cart_id, product_id)
 );

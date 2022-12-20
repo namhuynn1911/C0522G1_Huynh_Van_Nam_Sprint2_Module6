@@ -40,6 +40,12 @@ export class BadmintonService {
     return this.httpClient.get<SearchResult<IBadmintonDto>>(API_URL_HOME);
   }
 
+  findAllListYonex(name: string, size: number): Observable<SearchResult<IBadmintonDto>> {
+    const API_URL_YONEX = this.URL_API + '/badminton/list/yonex?name=' + name + '&size=' + size;
+    console.log(API_URL_YONEX);
+    return this.httpClient.get<SearchResult<IBadmintonDto>>(API_URL_YONEX);
+  }
+
   findAllListShoe(name: string, size: number): Observable<SearchResult<IBadmintonDto>> {
     const API_URL_SHOE = this.URL_API + '/badminton/list/shoe?name=' + name + '&size=' + size;
     console.log(API_URL_SHOE);
@@ -50,26 +56,28 @@ export class BadmintonService {
     return this.httpClient.get<IBadmintonDto>(this.URL_API + '/badminton/detail/' + id);
   }
 
-  findAllCart(): Observable<CartDto[]> {
-    return this.httpClient.get<CartDto[]>(this.URL_API + '/badminton/list/cart');
+  findAllCart(username: string): Observable<CartDto[]> {
+    return this.httpClient.get<CartDto[]>(this.URL_API + '/badminton/cart' + '?username=' + username);
   }
 
-  sumBill(): Observable<SumCart> {
-    return this.httpClient.get<SumCart>(this.URL_API + '/badminton/sumBill');
+  sumBill(username: string): Observable<SumCart> {
+    return this.httpClient.get<SumCart>(this.URL_API + '/badminton/sumBill' + '?username=' + username);
   }
 
-  updateAmount(cartDto: CartDto): Observable<void> {
+  updateAmount(cartDto: CartDto, username: string): Observable<void> {
     console.log(cartDto.amount);
     return this.httpClient.patch<void>(this.URL_API + '/badminton/amount-update' + '?id=' + cartDto.id + '&amount=' +
-      cartDto.amount, cartDto);
+      cartDto.amount + '&username=' + username, cartDto);
   }
 
   removeProduct(id: number | undefined): Observable<any> {
     return this.httpClient.delete<any>(this.URL_API + '/badminton/del-product' + '?id=' + id);
   }
+
   // thêm mới vào giỏ hàng
-  updateCart(iBadmintonDto: IBadmintonDto): Observable<void> {
-    console.log(this.URL_API + '/badminton/cart-update' + '?id=' + iBadmintonDto.id);
-    return this.httpClient.post<void>(this.URL_API + '/badminton/cart-update' + '?id=' + iBadmintonDto.id , iBadmintonDto);
+  updateCart(iBadmintonDto: IBadmintonDto, username: string): Observable<void> {
+    console.log(this.URL_API + '/badminton/cart-update' + '?id=' + iBadmintonDto.id + '&username=' + username);
+    return this.httpClient.post<void>(this.URL_API + '/badminton/cart-update' + '?id=' + iBadmintonDto.id + '&username=' + username,
+      iBadmintonDto);
   }
 }

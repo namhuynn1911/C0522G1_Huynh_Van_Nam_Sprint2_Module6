@@ -42,7 +42,11 @@
       <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Quay lại trang sản phẩm</a></td>
       <td colspan="2" class="hidden-xs"></td>
       <td class="hidden-xs text-center"><strong>Tổng tiền: {{sumCart.sumCart | currency: "VND"}} </strong></td>
-      <td><a href="#" class="btn btn-success btn-block">Pay <i class="fa fa-angle-right"></i></a></td>
+      <td>
+        <button class="btn btn-success btn-block" (click)="payment()">Pay</button>
+        <div id="myPaypal">
+        </div>
+      </td>
     </tr>
     </tfoot>
   </table>

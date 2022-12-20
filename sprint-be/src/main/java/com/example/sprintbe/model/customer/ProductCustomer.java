@@ -1,6 +1,7 @@
 package com.example.sprintbe.model.customer;
 
 
+import com.example.sprintbe.model.cart.Cart;
 import com.example.sprintbe.model.product.Product;
 
 import javax.persistence.*;
@@ -13,23 +14,22 @@ public class ProductCustomer implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @ManyToOne
-    @JoinColumn(name = "id_product", referencedColumnName = "id")
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
-
     @Id
     @ManyToOne
-    @JoinColumn(name = "id_customer", referencedColumnName = "id")
-    private Customer customer;
-
+    @JoinColumn(name = "cart_id", referencedColumnName = "id")
+    private Cart cart;
+    private Integer amount;
     @Column(name = "is_delete")
     private boolean isDelete;
-
     public ProductCustomer() {
     }
 
-    public ProductCustomer(Product product, Customer customer, boolean isDelete) {
+    public ProductCustomer(Product product, Cart cart, Integer amount, boolean isDelete) {
         this.product = product;
-        this.customer = customer;
+        this.cart = cart;
+        this.amount = amount;
         this.isDelete = isDelete;
     }
 
@@ -41,12 +41,20 @@ public class ProductCustomer implements Serializable {
         this.product = product;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Cart getCart() {
+        return cart;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     public boolean isDelete() {

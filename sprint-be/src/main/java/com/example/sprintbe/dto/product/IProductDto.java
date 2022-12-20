@@ -19,4 +19,6 @@ public interface IProductDto {
     String getProductType();
 
     String getProducer();
+
+    String getUsername();
 }

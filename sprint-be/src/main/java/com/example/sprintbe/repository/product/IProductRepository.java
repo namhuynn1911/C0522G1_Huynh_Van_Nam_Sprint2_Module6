@@ -18,7 +18,7 @@ import java.util.Optional;
 public interface IProductRepository extends JpaRepository<Product, Integer> {
 
     Optional<ProductDto> findById(int id);
-
+//list home
     @Query(value = "select product.id as id, " +
             "product.name as name, " +
             "product.image as image, " +
@@ -36,6 +36,25 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
             "and product_type.id= 1 ",
             countQuery = "select count(*) ", nativeQuery = true)
     Page<IProductDto> findAllHome(@Param("keywordName") String name, Pageable pageable);
+
+    //list yonex
+    @Query(value = "select product.id as id, " +
+            "product.name as name, " +
+            "product.image as image, " +
+            "product.date_of_manufacture as dateOfManufacture, " +
+            "product.content as content, " +
+            "product.price as price, " +
+            "product.promotion as promotion, " +
+            "product_type.name as productType, " +
+            "producer.name as producer " +
+            "from product " +
+            "join product_type on product.product_type_id = product_type.id " +
+            "join producer on product.producer_id = producer.id " +
+            "where product.name like %:keywordName% " +
+            "and product.is_delete = 0 " +
+            "and producer.id= 1 ",
+            countQuery = "select count(*) ", nativeQuery = true)
+    Page<IProductDto> findAllYonex(@Param("keywordName") String name, Pageable pageable);
 
     @Query(value = "select product.id as id, " +
             "product.name as name, " +

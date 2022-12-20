@@ -16,19 +16,18 @@ public interface IProductService {
 
     Page<IProductDto> findAllHome(String name, Pageable pageable);
 
+    Page<IProductDto> findAllYonex(String name, Pageable pageable);
+
     Page<IProductDto> findAllShoe(String name, Pageable pageable);
 
     Optional<IProductDto> getProductDetail(Integer id);
 
-    ISumCart getSumBill();
 
-    CartDto findById(Integer id);
 
-    void insertToCart(Integer id);
+//    CartDto findById(Integer id);
 
-    void updateCart(Integer id);
 
-    void updateAmount(Integer id, Integer amount);
+
 
     void deleteProduct(Integer id);
 }

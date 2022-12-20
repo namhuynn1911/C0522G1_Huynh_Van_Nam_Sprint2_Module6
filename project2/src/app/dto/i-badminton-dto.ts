@@ -9,6 +9,6 @@ image?: string;
 content?: string;
 price?: number;
 promotion?: string;
-productType?: IProductType[];
-producer?: IProducer[];
+productType?: IProductType;
+producer?: IProducer;
 }

@@ -5,6 +5,7 @@ import com.example.sprintbe.dto.cart.CartDto;
 import com.example.sprintbe.dto.cart.ISumCart;
 import com.example.sprintbe.dto.product.IProductDto;
 import com.example.sprintbe.jwt.JwtTokenUtil;
+import com.example.sprintbe.model.cart.Cart;
 import com.example.sprintbe.payload.request.LoginRequest;
 import com.example.sprintbe.payload.request.LoginResponse;
 import com.example.sprintbe.repository.cart.ICartRepository;
@@ -59,6 +60,17 @@ public class ProductRestController {
         return new ResponseEntity<>(productPage, HttpStatus.OK);
     }
 
+    @GetMapping("/list/yonex")
+    public ResponseEntity<Page<IProductDto>> getAllYonex(@RequestParam(value = "name", defaultValue = "") String name,
+                                                           Pageable pageable) {
+        Page<IProductDto> productPage = iProductService.findAllYonex(name, pageable);
+        if (productPage.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(productPage, HttpStatus.OK);
+    }
+
+
     @GetMapping("/list/shoe")
     public ResponseEntity<Page<IProductDto>> getAllShoe(@RequestParam(value = "name", defaultValue = "") String name,
                                                         Pageable pageable) {
@@ -97,39 +109,45 @@ public class ProductRestController {
 
     //code Cart
 
-    @GetMapping("/list/cart")
-    public ResponseEntity<List<CartDto>> getAllCart() {
-        List<CartDto> cartDtoList = iCartService.getCart();
-        if (cartDtoList.isEmpty()) {
+    @GetMapping("/cart")
+    public ResponseEntity<List<CartDto>> getCartList(@RequestParam String username) {
+        Cart cart = iCartService.findCartByUsername(username);
+        List<CartDto> cartDtos = iCartService.getCart(cart.getId());
+        if (cartDtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(cartDtoList, HttpStatus.OK);
+        return new ResponseEntity<>(cartDtos, HttpStatus.OK);
     }
 
     @GetMapping("/sumBill")
-    public ResponseEntity<ISumCart> getTotalBill() {
-        ISumCart iSumCart = iProductService.getSumBill();
-        if (iSumCart == null) {
+    public ResponseEntity<ISumCart> getTotalBill(@RequestParam String username) {
+        Cart cart = iCartService.findCartByUsername(username);
+        ISumCart totalBill = iCartService.getSumBill(cart.getId());
+        if (totalBill == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(iSumCart, HttpStatus.OK);
+        return new ResponseEntity<>(totalBill, HttpStatus.OK);
     }
-
+//ok
     @PostMapping("/cart-update")
-    public ResponseEntity<?> updateCart(@RequestParam Integer id) {
-        CartDto cartDto = iCartRepository.findByIdCart(id);
-        if (cartDto == null) {
-            iProductService.insertToCart(id);
-        } else {
-            iProductService.updateCart(id);
-    }
+    public ResponseEntity<?> updateCart(@RequestParam Integer id,
+                                        @RequestParam String username) {
+        IProductDto productDto = iCartService.findById(id, username);
+        Cart cart = iCartService.findCartByUsername(username);
+        if (productDto == null) {
+            iCartService.insertToCart(cart.getId(), id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        iCartService.updateCart(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
+//ok
     @PatchMapping("/amount-update")
     public ResponseEntity<?> updateQty(@RequestParam Integer id,
-                                       @RequestParam Integer amount) {
-        iProductService.updateAmount(id, amount);
+                                       @RequestParam Integer amount,
+                                       @RequestParam String username) {
+        Cart cart = iCartService.findCartByUsername(username);
+        iCartService.updateAmount(id, amount, cart.getId());
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

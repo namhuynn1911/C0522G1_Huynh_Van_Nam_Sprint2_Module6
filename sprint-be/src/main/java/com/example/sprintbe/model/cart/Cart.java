@@ -1,5 +1,7 @@
 package com.example.sprintbe.model.cart;
 
+import com.example.sprintbe.model.customer.Customer;
+import com.example.sprintbe.model.decentralization.User;
 import com.example.sprintbe.model.product.Product;
 import com.example.sprintbe.model.product.ProductType;
 
@@ -11,20 +13,18 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private boolean isDelete;
-    private int amount;
-    @ManyToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "id")
-    private Product product;
+    @OneToOne
+    @JoinColumn(name = "username", referencedColumnName = "username")
+    private User username;
+    private boolean is_delete;
 
     public Cart() {
     }
 
-    public Cart(Integer id, boolean isDelete, int amount, Product product) {
+    public Cart(Integer id, User username, boolean is_delete) {
         this.id = id;
-        this.isDelete = isDelete;
-        this.amount = amount;
-        this.product = product;
+        this.username = username;
+        this.is_delete = is_delete;
     }
 
     public Integer getId() {
@@ -35,27 +35,19 @@ public class Cart {
         this.id = id;
     }
 
-    public boolean isDelete() {
-        return isDelete;
+    public User getUsername() {
+        return username;
     }
 
-    public void setDelete(boolean delete) {
-        isDelete = delete;
+    public void setUsername(User username) {
+        this.username = username;
     }
 
-    public int getAmount() {
-        return amount;
+    public boolean isIs_delete() {
+        return is_delete;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setIs_delete(boolean is_delete) {
+        this.is_delete = is_delete;
     }
 }

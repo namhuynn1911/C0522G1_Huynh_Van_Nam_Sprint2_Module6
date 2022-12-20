@@ -35,6 +35,11 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public Page<IProductDto> findAllYonex(String name, Pageable pageable) {
+        return iProductRepository.findAllYonex(name, pageable);
+    }
+
+    @Override
     public Page<IProductDto> findAllShoe(String name, Pageable pageable) {
         return iProductRepository.findAllShoe(name, pageable);
     }
@@ -44,30 +49,15 @@ public class ProductService implements IProductService {
         return iProductRepository.productDetail(id);
     }
 
-    @Override
-    public ISumCart getSumBill() {
-        return iCartRepository.sumCart();
-    }
+//    @Override
+//    public CartDto findById(Integer id) {
+//        return iCartRepository.findByIdCart(id);
+//    }
 
-    @Override
-    public CartDto findById(Integer id) {
-        return iCartRepository.findByIdCart(id);
-    }
-
-    @Override
-    public void insertToCart(Integer id) {
-        iCartRepository.insertToCart(id);
-    }
-
-    @Override
-    public void updateCart(Integer id) {
-        iCartRepository.updateCart(id);
-    }
-
-    @Override
-    public void updateAmount(Integer id, Integer amount) {
-        iCartRepository.updateAmount(id, amount);
-    }
+//    @Override
+//    public void updateAmount(Integer id, Integer amount) {
+//        iCartRepository.updateAmount(id, amount);
+//    }
 
     @Override
     public void deleteProduct(Integer id) {
