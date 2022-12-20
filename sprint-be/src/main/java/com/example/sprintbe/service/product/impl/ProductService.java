@@ -1,8 +1,11 @@
 package com.example.sprintbe.service.product.impl;
 
+import com.example.sprintbe.dto.cart.CartDto;
+import com.example.sprintbe.dto.cart.ISumCart;
 import com.example.sprintbe.dto.product.IProductDto;
 import com.example.sprintbe.dto.product.ProductDto;
 import com.example.sprintbe.model.product.Product;
+import com.example.sprintbe.repository.cart.ICartRepository;
 import com.example.sprintbe.repository.product.IProductRepository;
 import com.example.sprintbe.service.product.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,8 @@ public class ProductService implements IProductService {
 
     @Autowired
     private IProductRepository iProductRepository;
+    @Autowired
+    private ICartRepository iCartRepository;
 
 
     @Override
@@ -37,5 +42,35 @@ public class ProductService implements IProductService {
     @Override
     public Optional<IProductDto> getProductDetail(Integer id) {
         return iProductRepository.productDetail(id);
+    }
+
+    @Override
+    public ISumCart getSumBill() {
+        return iCartRepository.sumCart();
+    }
+
+    @Override
+    public CartDto findById(Integer id) {
+        return iCartRepository.findByIdCart(id);
+    }
+
+    @Override
+    public void insertToCart(Integer id) {
+        iCartRepository.insertToCart(id);
+    }
+
+    @Override
+    public void updateCart(Integer id) {
+        iCartRepository.updateCart(id);
+    }
+
+    @Override
+    public void updateAmount(Integer id, Integer amount) {
+        iCartRepository.updateAmount(id, amount);
+    }
+
+    @Override
+    public void deleteProduct(Integer id) {
+        iCartRepository.deleteProduct(id);
     }
 }

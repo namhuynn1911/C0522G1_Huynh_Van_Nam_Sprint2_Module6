@@ -10,10 +10,15 @@ import {DetailBadmintonComponent} from './detail-badminton/detail-badminton.comp
 import {CartBadmintonComponent} from './cart-badminton/cart-badminton.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ShoeListComponent } from './shoe-list/shoe-list.component';
+import {FormsModule} from '@angular/forms';
+import {ButtonModule} from 'primeng-lts/button';
+import {ToastModule} from 'primeng-lts/toast';
 
 
 @NgModule({
-  declarations: [NavbarComponent, FooterComponent, BodyComponent, ListBadmintonComponent, DetailBadmintonComponent, CartBadmintonComponent, ShoeListComponent],
+
+  declarations: [NavbarComponent, FooterComponent, BodyComponent, ListBadmintonComponent, DetailBadmintonComponent,
+    CartBadmintonComponent, ShoeListComponent],
   exports: [
     NavbarComponent,
     FooterComponent,
@@ -22,7 +27,10 @@ import { ShoeListComponent } from './shoe-list/shoe-list.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ButtonModule,
+    ToastModule
   ]
 })
 export class HomeModule {

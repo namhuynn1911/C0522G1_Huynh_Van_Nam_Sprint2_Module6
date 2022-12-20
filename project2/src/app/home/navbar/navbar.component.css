@@ -88,10 +88,11 @@
   color: black;
 }
 .cartHeader{
-  background-color: orange;
+  background-color: white;
   border-radius: 10px;
   height: 50px;
+  border: none;
 }
 .cartHeader:hover {
-  background-color: white;
+  background-color: orange;
 }

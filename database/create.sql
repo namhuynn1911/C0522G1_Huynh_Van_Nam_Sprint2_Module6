@@ -59,6 +59,13 @@ create table if not exists product(
     product_type_id int,
     foreign key (product_type_id) references product_type(id)
 );
+create table if not exists cart(
+	id int primary key auto_increment,
+	amount int,
+    is_delete bit default 0,
+    product_id int,
+    foreign key(product_id) references product(id)
+);
 create table if not exists product_customer(
 id_customer int,
 id_product int,

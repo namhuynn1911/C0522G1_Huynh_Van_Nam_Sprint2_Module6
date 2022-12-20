@@ -5,6 +5,7 @@ import {BadmintonService} from '../../service/badminton.service';
 import {Title} from '@angular/platform-browser';
 import {NavigationEnd, Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
@@ -38,6 +39,7 @@ export class BodyComponent implements OnInit {
       }
       window.scrollTo(0, 0);
     });
+
   }
 
   paginate(productNameSearch, pageSize) {
@@ -73,5 +75,11 @@ export class BodyComponent implements OnInit {
   shoeNextPage() {
     this.pageSizeShoe += 3;
     this.shoePaginate(this.shoeNameSearch, this.pageSizeShoe);
+  }
+
+  addToCart(item: IBadmintonDto) {
+    this.badmintonService.updateCart(item).subscribe(() => {
+      // this.messageService.add({severity: 'success', summary: 'Success', detail: 'Add successfully'});
+    });
   }
 }

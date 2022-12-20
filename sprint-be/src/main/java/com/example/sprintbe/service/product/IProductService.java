@@ -1,5 +1,7 @@
 package com.example.sprintbe.service.product;
 
+import com.example.sprintbe.dto.cart.CartDto;
+import com.example.sprintbe.dto.cart.ISumCart;
 import com.example.sprintbe.dto.product.IProductDto;
 import com.example.sprintbe.dto.product.ProductDto;
 import com.example.sprintbe.model.product.Product;
@@ -17,4 +19,16 @@ public interface IProductService {
     Page<IProductDto> findAllShoe(String name, Pageable pageable);
 
     Optional<IProductDto> getProductDetail(Integer id);
+
+    ISumCart getSumBill();
+
+    CartDto findById(Integer id);
+
+    void insertToCart(Integer id);
+
+    void updateCart(Integer id);
+
+    void updateAmount(Integer id, Integer amount);
+
+    void deleteProduct(Integer id);
 }

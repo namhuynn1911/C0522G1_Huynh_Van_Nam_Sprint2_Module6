@@ -3,7 +3,7 @@ import {BadmintonService} from '../../service/badminton.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Title} from '@angular/platform-browser';
 import {IBadmintonDto} from '../../dto/i-badminton-dto';
-import {async} from '@angular/core/testing';
+
 
 declare function detail(): void;
 
@@ -18,7 +18,7 @@ product: IBadmintonDto;
   constructor(private badmintonService: BadmintonService,
               private activatedRoute: ActivatedRoute,
               private title: Title,
-              private router: Router) { }
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Chi tiết sản phẩm');
