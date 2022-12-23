@@ -22,6 +22,7 @@ export class CartBadmintonComponent implements OnInit {
   sumCart: SumCart;
   username: string;
   nameDelete: string;
+  actionCart = true;
 
   constructor(private badmintonService: BadmintonService,
               private title: Title,
@@ -86,16 +87,21 @@ export class CartBadmintonComponent implements OnInit {
   }
 
   payment(): void {
+    this.actionCart = false;
     render(
       {
         id: '#myPaypal',
         value: '100.00',
         currency: 'USD',
         onApprove: (details) => {
-          alert('thành công');
+          // alert('Thanh toán thành công');
+          Swal.fire(
+            'Xin chân than cảm ơn !',
+            'Thanh toán thành công !!!.',
+            'success'
+          );
         }
       }
     );
-
   }
 }

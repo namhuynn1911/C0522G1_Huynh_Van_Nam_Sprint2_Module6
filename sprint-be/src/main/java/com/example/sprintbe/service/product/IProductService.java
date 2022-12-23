@@ -4,6 +4,7 @@ import com.example.sprintbe.dto.cart.CartDto;
 import com.example.sprintbe.dto.cart.ISumCart;
 import com.example.sprintbe.dto.product.IProductDto;
 import com.example.sprintbe.dto.product.ProductDto;
+import com.example.sprintbe.model.customer.Customer;
 import com.example.sprintbe.model.product.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,4 +31,6 @@ public interface IProductService {
 
 
     void deleteProduct(Integer id);
+
+    Customer findByUsername(String username);
 }

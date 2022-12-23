@@ -23,4 +23,6 @@ public interface ICartService {
     IProductDto findById(Integer id, String username);
 
     void updateAmount(Integer id, Integer amount, Integer cartId);
+
+//    void payment(String username);
 }

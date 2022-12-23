@@ -23,6 +23,7 @@ public class ProductCustomer implements Serializable {
     private Integer amount;
     @Column(name = "is_delete")
     private boolean isDelete;
+
     public ProductCustomer() {
     }
 
@@ -31,7 +32,9 @@ public class ProductCustomer implements Serializable {
         this.cart = cart;
         this.amount = amount;
         this.isDelete = isDelete;
+
     }
+
 
     public Product getProduct() {
         return product;

@@ -4,8 +4,10 @@ import com.example.sprintbe.dto.cart.CartDto;
 import com.example.sprintbe.dto.cart.ISumCart;
 import com.example.sprintbe.dto.product.IProductDto;
 import com.example.sprintbe.dto.product.ProductDto;
+import com.example.sprintbe.model.customer.Customer;
 import com.example.sprintbe.model.product.Product;
 import com.example.sprintbe.repository.cart.ICartRepository;
+import com.example.sprintbe.repository.customer.ICustomerRepository;
 import com.example.sprintbe.repository.product.IProductRepository;
 import com.example.sprintbe.service.product.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class ProductService implements IProductService {
     private IProductRepository iProductRepository;
     @Autowired
     private ICartRepository iCartRepository;
+
+    @Autowired
+    private ICustomerRepository iCustomerRepository;
 
 
     @Override
@@ -62,5 +67,10 @@ public class ProductService implements IProductService {
     @Override
     public void deleteProduct(Integer id) {
         iCartRepository.deleteProduct(id);
+    }
+
+    @Override
+    public Customer findByUsername(String username) {
+        return iCustomerRepository.findByUsername(username);
     }
 }

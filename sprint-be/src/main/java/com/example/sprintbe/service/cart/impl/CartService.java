@@ -4,7 +4,10 @@ import com.example.sprintbe.dto.cart.CartDto;
 import com.example.sprintbe.dto.cart.ISumCart;
 import com.example.sprintbe.dto.product.IProductDto;
 import com.example.sprintbe.model.cart.Cart;
+import com.example.sprintbe.model.customer.Customer;
 import com.example.sprintbe.repository.cart.ICartRepository;
+import com.example.sprintbe.repository.customer.ICustomerRepository;
+import com.example.sprintbe.repository.product.IProductRepository;
 import com.example.sprintbe.service.cart.ICartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,11 @@ public class CartService implements ICartService {
 
     @Autowired
     private ICartRepository iCartRepository;
+    @Autowired
+    private IProductRepository iProductRepository;
+    @Autowired
+    private ICustomerRepository iCustomerRepository;
+
 
     @Override
     public List<CartDto> getCart(Integer cartId) {
@@ -52,5 +60,10 @@ public class CartService implements ICartService {
     public void updateAmount(Integer id, Integer amount, Integer cartId) {
         iCartRepository.updateAmount(id,amount,cartId);
     }
+
+//    @Override
+//    public void payment(String username) {
+//        iCartRepository.payment(username);
+//    }
 
 }

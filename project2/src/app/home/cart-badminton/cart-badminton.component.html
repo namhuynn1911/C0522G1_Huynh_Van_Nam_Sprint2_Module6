@@ -43,7 +43,7 @@
       <td colspan="2" class="hidden-xs"></td>
       <td class="hidden-xs text-center"><strong>Tổng tiền: {{sumCart.sumCart | currency: "VND"}} </strong></td>
       <td>
-        <button class="btn btn-success btn-block" (click)="payment()">Pay</button>
+        <button *ngIf=" actionCart" class="btn btn-success btn-block" (click)="payment()">Pay</button>
         <div id="myPaypal">
         </div>
       </td>

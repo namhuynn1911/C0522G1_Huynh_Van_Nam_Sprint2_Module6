@@ -24,10 +24,12 @@ public interface ICartRepository extends JpaRepository<Cart, Integer> {
             "where product_customer.cart_id =:cartId and product_customer.is_delete =0 " +
             "group by product.id", nativeQuery = true)
     List<CartDto> productCart(Integer cartId);
-//ok
+
+    //ok
     @Query(value = "select * from cart where username = :username and is_delete = 0", nativeQuery = true)
     Cart findCartId(@Param("username") String username);
-//ok
+
+    //ok
     @Query(value = "select sum(product_customer.amount * product.price) as sumCart, " +
             "count(product_customer.product_id) as countProduct  " +
             "from product_customer " +
@@ -38,14 +40,14 @@ public interface ICartRepository extends JpaRepository<Cart, Integer> {
     @Modifying
     @Query(value = "insert into product_customer(cart_id,product_id, amount) values(:cartId, :id, 1) ", nativeQuery = true)
     void insertToCart(@Param("cartId") Integer cartId,
-            @Param("id") Integer id);
+                      @Param("id") Integer id);
 
     @Query(value = "select product.id, cart.username as username from product_customer " +
             "join product on product_customer.product_id = product.id " +
             "join cart on product_customer.cart_id = cart.id " +
             "where product_customer.product_id =:id " +
             "and cart.username = :username " +
-            "and product_customer.is_delete = 0", nativeQuery = true)
+            "and product_customer.is_delete = 0 ", nativeQuery = true)
     IProductDto findByIdCart(@Param("id") Integer id,
                              @Param("username") String username);
 
@@ -58,10 +60,15 @@ public interface ICartRepository extends JpaRepository<Cart, Integer> {
     @Modifying
     @Query(value = "update product_customer set amount = :amount " +
             "where product_customer.product_id =:id and cart_id = :cartId and is_delete = 0", nativeQuery = true)
-    void updateAmount(Integer id, Integer amount,Integer cartId);
+    void updateAmount(Integer id, Integer amount, Integer cartId);
 
     @Modifying
     @Query(value = "delete from product_customer " +
             "where product_id = :id", nativeQuery = true)
     void deleteProduct(Integer id);
+//@Query(value = "update product_customer set is_pay = 1 " +
+//        "join " +
+//        "where username = :username ",nativeQuery = true)
+//    void payment(String username);
+//}
 }

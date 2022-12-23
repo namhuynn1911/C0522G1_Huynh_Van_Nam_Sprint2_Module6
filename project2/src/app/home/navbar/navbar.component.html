@@ -1,19 +1,11 @@
 <div class="row"
      style="background: white;padding: 0">
-  <div class="col-lg-3">
+  <div class="col-lg-3 col-md-6 col-sm-9">
     <a routerLink="" class="logo px-5" style="margin-bottom: 10px">
       <img src="/assets/img/namlogo.png" style="height: 100px;width: 200px" alt="">
     </a>
   </div>
-  <div class="col-lg-5">
-<!--    <form class="navbar-form navbar-left mt-4" role="search">-->
-<!--      <div class="form-group " style="float: left;width: 400px">-->
-<!--        <input type="text" class="form-control" placeholder="Tên sản phẩm ...">-->
-<!--      </div>-->
-<!--      <button type="submit" class="btn btn-default mx-1"-->
-<!--              style="background: rgb(58,36,83);color:white;border-radius: 10px">Tìm-->
-<!--      </button>-->
-<!--    </form>-->
+  <div class="col-lg-5 col-md-10">
    <div>
      <h1 style="font-weight: bold;color: red">NAM HUỲNH SPORT</h1>
    </div>
@@ -22,7 +14,7 @@
     </div>
 
   </div>
-  <div class="col-lg-2">
+  <div class="col-lg-2 col-md-8 col-sm-12">
     <div class="dropdown mt-2" style="padding: 0">
       <p style="color: black;font-weight: bolder;font-size: 20px">
         <i class="fa-solid fa-user"></i>
@@ -42,7 +34,7 @@
       </p>
     </div>
   </div>
-  <div class="col-lg-2">
+  <div class="col-lg-2 col-md-8 col-sm-12">
     <button *ngIf="username != ''" class="cartHeader mt-4" routerLink="/cart">
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-plus-fill"
            viewBox="0 0 16 16">
@@ -72,7 +64,7 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav-scroll" style="text-align: center">
           <li class="nav-item mx-4">
-            <a class="nav-link colorA" routerLink="/ticket/booking-ticket">
+            <a class="nav-link colorA" routerLink="">
               <i class="fa-solid fa-house-user"></i> Trang chủ</a>
           </li>
           <li class="nav-item dropdown mx-4">
@@ -81,7 +73,7 @@
               <i class="fa-brands fa-product-hunt"></i> Sản phẩm
             </a>
             <ul class="dropdown-menu dropdown-menu-danger">
-              <li><a class="dropdown-item" routerLink="/moviePlay">Cầu lông</a></li>
+              <li><a class="dropdown-item" routerLink="/yonex">Cầu lông</a></li>
               <li><a class="dropdown-item" routerLink="/moviePremiere">Giày cầu lông</a></li>
               <li><a class="dropdown-item" routerLink="/moviePremiere">Vật dụng khác</a></li>
             </ul>
