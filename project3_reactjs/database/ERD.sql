@@ -6,6 +6,18 @@ create table if not exists user(
     password varchar(200),
     is_delete bit default 0
 );
+create table if not exists customer(
+	id int primary key auto_increment,
+	name varchar(30),
+	is_delete bit default 0,
+	day_of_birth varchar(30),
+	gender int,
+	email varchar(100),
+	address varchar(200),
+	phone_number varchar(15),
+	username varchar(30) unique,
+	foreign key (username) references user(username)
+);
 create table  if not exists role(
 	id int primary key auto_increment,
     name varchar(30),
@@ -46,6 +58,8 @@ create table if not exists bill(
 	id int primary key auto_increment,
 	create_date int,
     quantity int,
+    customer_id int,
+    foreign key(customer_id) references customer(id),
     bill_type_id int,
     foreign key(bill_type_id) references bill_type(id)
 );
