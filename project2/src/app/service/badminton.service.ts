@@ -80,4 +80,8 @@ export class BadmintonService {
     return this.httpClient.post<void>(this.URL_API + '/badminton/cart-update' + '?id=' + iBadmintonDto.id + '&username=' + username,
       iBadmintonDto);
   }
+
+  removeCart(id: number): Observable<any> {
+    return this.httpClient.delete<any>(this.URL_API + '/badminton/del-cart' + '?id=' + id);
+  }
 }

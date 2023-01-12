@@ -77,8 +77,9 @@ export class LoginComponent implements OnInit {
           title: this.username + ' Đăng nhập thành công !',
           showConfirmButton: false,
           timer: 2000
+        }).then(value => {
+          window.location.replace('');
         });
-        window.location.replace('');
       },
       err => {
         this.authService.isLoggedIn = false;
@@ -93,31 +94,31 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  signInWithGoogle(): void {
-    this.authSocialService.signIn(GoogleLoginProvider.PROVIDER_ID).then(data => {
-      this.socialUser = data;
-      const tokenGoogle = new JwtResponseService(this.socialUser.idToken);
-      this.auth.google(tokenGoogle).subscribe(req => {
-          if (req.token === '') {
-            this.tokenStorageService.saveUser(req.user);
-          } else {
-            this.tokenStorageService.saveTokenLocal(req.token);
-            req.username = null;
-            this.tokenStorageService.saveUserLocal(req.user);
-            this.tokenStorageService.saveUserLocal(req.username);
-            this.router.navigateByUrl('');
-          }
-        },
-        error => {
-          console.log(error);
-          this.logOut();
-        });
-    }).catch(
-      err => {
-        console.log(err);
-      }
-    );
-  }
+  // signInWithGoogle(): void {
+  //   this.authSocialService.signIn(GoogleLoginProvider.PROVIDER_ID).then(data => {
+  //     this.socialUser = data;
+  //     const tokenGoogle = new JwtResponseService(this.socialUser.idToken);
+  //     this.auth.google(tokenGoogle).subscribe(req => {
+  //         if (req.token === '') {
+  //           this.tokenStorageService.saveUser(req.user);
+  //         } else {
+  //           this.tokenStorageService.saveTokenLocal(req.token);
+  //           req.username = null;
+  //           this.tokenStorageService.saveUserLocal(req.user);
+  //           this.tokenStorageService.saveUserLocal(req.username);
+  //           this.router.navigateByUrl('');
+  //         }
+  //       },
+  //       error => {
+  //         console.log(error);
+  //         this.logOut();
+  //       });
+  //   }).catch(
+  //     err => {
+  //       console.log(err);
+  //     }
+  //   );
+  // }
 
   logOut(): void {
     this.authSocialService.signOut().then(

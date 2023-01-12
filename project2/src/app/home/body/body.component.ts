@@ -59,7 +59,7 @@ export class BodyComponent implements OnInit {
   }
 
   nextPage() {
-    this.pageSize += 3;
+    this.pageSize += 4;
     this.paginate(this.productNameSearch, this.pageSize);
   }
 
@@ -77,7 +77,7 @@ export class BodyComponent implements OnInit {
   }
 
   shoeNextPage() {
-    this.pageSizeShoe += 3;
+    this.pageSizeShoe += 4;
     this.shoePaginate(this.shoeNameSearch, this.pageSizeShoe);
   }
 
@@ -99,6 +99,8 @@ export class BodyComponent implements OnInit {
       Toast.fire({
         icon: 'success',
         title: 'Thêm vào giỏ hàng thành công!'
+      }).then(value => {
+        location.reload();
       });
     }, error => {
       console.log(error);

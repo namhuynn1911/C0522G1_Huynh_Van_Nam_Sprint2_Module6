@@ -62,7 +62,7 @@ export class CartBadmintonComponent implements OnInit {
   }
 
   removeProduct(product: CartDto) {
-    this.nameDelete = product.name;
+    // this.nameDelete = product.name;
     Swal.fire({
       title: 'Bạn chắc chắn muốn xóa sản phẩm?',
       text: this.nameDelete,
@@ -83,23 +83,29 @@ export class CartBadmintonComponent implements OnInit {
           this.ngOnInit();
         });
       }
+      location.reload();
     });
   }
 
-  payment(): void {
+  payment(id: number): void {
     this.actionCart = false;
     render(
       {
         id: '#myPaypal',
-        value: '100.00',
+        value: '1.00',
         currency: 'USD',
         onApprove: (details) => {
           // alert('Thanh toán thành công');
           Swal.fire(
-            'Xin chân than cảm ơn !',
-            'Thanh toán thành công !!!.',
+            'Thanh toán thành công !!!',
+            'Chân thành cảm ơn quý khách.',
             'success'
-          );
+          ).then(value => {
+            location.reload();
+          });
+          this.badmintonService.removeCart(id).subscribe(value => {
+            this.router.navigateByUrl('');
+          });
         }
       }
     );

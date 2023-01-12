@@ -24,5 +24,7 @@ public interface ICartService {
 
     void updateAmount(Integer id, Integer amount, Integer cartId);
 
+    void deleteCart(Integer id);
+
 //    void payment(String username);
 }

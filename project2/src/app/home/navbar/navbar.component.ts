@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
 import {TokenStorageService} from '../../service/token-storage.service';
+import {BadmintonService} from '../../service/badminton.service';
+import {SumCart} from '../../dto/sum-cart';
 
 @Component({
   selector: 'app-navbar',
@@ -14,9 +16,11 @@ export class NavbarComponent implements OnInit {
   isCustomer = false;
   isAdmin = false;
   isEmployee = false;
+  sumCart: SumCart;
 
   constructor(private router: Router,
               private tokenService: TokenStorageService,
+              private badmintonService: BadmintonService
   ) {
   }
 
@@ -24,6 +28,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.username = '';
     this.showUsername();
+    this.sum();
     // window.scroll({
     //   top: 0,
     //   left: 0,
@@ -53,5 +58,11 @@ export class NavbarComponent implements OnInit {
     this.isCustomer = false;
     this.isEmployee = false;
     this.isAdmin = false;
+  }
+
+  sum() {
+    this.badmintonService.sumBill(this.username).subscribe(data => {
+      this.sumCart = data;
+    });
   }
 }

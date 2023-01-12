@@ -10,8 +10,7 @@
       </p>
 
       <h2 class="product-card__price">
-        <span>€</span>
-        <span id="price-unit">{{product.price}}</span>
+        <span id="price-unit">{{product.price | currency: "VND"}}</span>
       </h2>
 
       <p class="product-card__description">

@@ -31,7 +31,7 @@ public interface ICartRepository extends JpaRepository<Cart, Integer> {
 
     //ok
     @Query(value = "select sum(product_customer.amount * product.price) as sumCart, " +
-            "count(product_customer.product_id) as countProduct  " +
+            "count(product_customer.product_id) as countProduct , product_customer.cart_id as cartId " +
             "from product_customer " +
             "join product on product.id = product_customer.product_id " +
             "where product_customer.cart_id =:cartId and product_customer.is_delete = 0 ", nativeQuery = true)
@@ -66,6 +66,12 @@ public interface ICartRepository extends JpaRepository<Cart, Integer> {
     @Query(value = "delete from product_customer " +
             "where product_id = :id", nativeQuery = true)
     void deleteProduct(Integer id);
+
+
+    @Modifying
+    @Query(value = "delete from product_customer " +
+            "where cart_id = :id ", nativeQuery = true)
+    void deleteCart(Integer id);
 //@Query(value = "update product_customer set is_pay = 1 " +
 //        "join " +
 //        "where username = :username ",nativeQuery = true)

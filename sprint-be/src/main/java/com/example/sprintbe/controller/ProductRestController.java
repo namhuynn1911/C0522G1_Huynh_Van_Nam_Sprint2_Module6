@@ -159,4 +159,13 @@ public class ProductRestController {
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @DeleteMapping("/del-cart")
+    public ResponseEntity<?> deleteCart(@RequestParam Integer id) {
+
+        iCartService.deleteCart(id);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

@@ -61,6 +61,11 @@ public class CartService implements ICartService {
         iCartRepository.updateAmount(id,amount,cartId);
     }
 
+    @Override
+    public void deleteCart(Integer id) {
+        iCartRepository.deleteCart(id);
+    }
+
 //    @Override
 //    public void payment(String username) {
 //        iCartRepository.payment(username);
