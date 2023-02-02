@@ -1,0 +1,10 @@
+
+7
+java:S1220""Move this file to a named package.8¸¶˜àà0
+b
+java:S1226"EIntroduce a new variable instead of reusing the parameter "sinhVien".(Šƒ„æ8ö§àà0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(‰ñİÀ8Ô¶˜àà0
+U	java:S106	"9Replace this use of System.out or System.err by a logger.(‰Ë¢…8ö§àà0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ıŠ¯ùÿÿÿÿ8ö§àà0
+Y
+java:S1854"<Remove this useless assignment to local variable "sinhVien".(Šƒ„æ8ö§àà0
